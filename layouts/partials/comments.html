@@ -7,6 +7,9 @@
       // Don't ever inject Disqus on localhost--it creates unwanted
       // discussions from 'localhost:1313' on your Disqus account...
       if (window.location.hostname === 'localhost') return;
+      var disqus_config = function () {
+        this.page.identifier = '{{ .File.Dir }}{{ .TranslationBaseName }}';
+      };
 
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
       var disqus_shortname = '{{ .Site.DisqusShortname }}';
